@@ -1,6 +1,6 @@
-# Data Scientist
+# Postdoctral researcher
 
-#### Technical Skills: Python, SQL, AWS, Snowflake, MATLAB
+#### Max Planck Institute for Human Devlopment 
 
 ## Education
 - Ph.D., Physics | The University of Texas at Dallas (_May 2022_)								       		
