@@ -1,9 +1,15 @@
-.custom-title {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 0;
-}
-.custom-subtitle {
-  font-size: 22px;
-  margin-top: 0;
-}
+<style>
+  /* remove the theme's underline from headings (optional) */
+  h1, h2 { border-bottom: none; }
+
+  .custom-title {
+    font-size: 32px;   /* big like an H1 */
+    font-weight: 700;
+    margin: 0 0 4px 0;
+  }
+  .custom-subtitle {
+    font-size: 20px;
+    font-style: italic;
+    margin: 0 0 16px 0;
+  }
+</style>
