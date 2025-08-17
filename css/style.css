@@ -1,14 +1,19 @@
-<style>
-  h1, h2 { border-bottom: none; }
+/* tweak the sidebar contact block a bit */
+.sidebar-contact {
+  margin-top: 8px;
+  line-height: 1.4;
+}
 
-  .custom-title {
-    font-size: 32px;   /* big like an H1 */
-    font-weight: 700;
-    margin: 0 0 4px 0;
-  }
-  .custom-subtitle {
-    font-size: 20px;
-    font-style: italic;
-    margin: 0 0 16px 0;
-  }
-</style>
+/* your custom title styles for the main column */
+.custom-title {
+  font-size: 32px;   /* big like H1 */
+  font-weight: 700;
+  margin: 0 0 6px 0;
+}
+
+.custom-subtitle {
+  font-size: 20px;
+  font-style: italic;
+  margin: 0 0 16px 0;
+}
+
