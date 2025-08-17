@@ -1,5 +1,3 @@
-<p class="custom-title">Postdoctoral Researcher</p>
-<p class="custom-subtitle">Adaptive Rationality Center, Max Planck Institute for Human Development</p> 
 # **Postdoctoral Researcher**
 ## Adaptive Rationality Center, Max Planck Institute for Human Development
 ---
