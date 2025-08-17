@@ -1,8 +1,8 @@
 # Postdoctral researcher
 
-#### Max Planck Institute for Human Devlopment 
+### Max Planck Institute for Human Devlopment 
 
 ## Education
-- Ph.D., Physics | The University of Texas at Dallas (_May 2022_)								       		
-- M.S., Physics	| The University of Texas at Dallas (_December 2019_)	 			        		
-- B.S., Physics | The University of Texas at Dallas (_May 2017_)
+- DPhil, Sociology  | University of Oxford (2021.10 - 2024.08)								       		
+- M.S., Cartography and Geographical Information System 	| The University of Texas at Dallas (2016.09—2019.06)	 			        		
+- B.S., Geographical Information System | The University of Texas at Dallas (2012.09—2016.06)
