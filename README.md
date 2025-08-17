@@ -1,6 +1,6 @@
 
-<span style="font-size:32px; font-weight:bold;">Postdoctoral Researcher</span>   
-<span style="font-size:26px">Adaptive Rationality Center, Max Planck Institute for Human Development</span>   
+<p class="custom-title">Postdoctoral Researcher</p>
+<p class="custom-subtitle">Adaptive Rationality Center, Max Planck Institute for Human Development</p>
 
 ---
 
