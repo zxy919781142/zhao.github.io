@@ -17,3 +17,5 @@
   margin: 0 0 16px 0;
 }
 
+/* optional: remove the underline the theme adds to headings */
+h1, h2, h3 { border-bottom: none; }
