@@ -7,7 +7,7 @@
 /* your custom title styles for the main column */
 .custom-title {
   font-size: 32px;   /* big like H1 */
-  font-weight: 700;
+  font-style: bold;
   margin: 0 0 6px 0;
 }
 
