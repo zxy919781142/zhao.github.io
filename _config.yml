@@ -5,6 +5,8 @@ theme: jekyll-theme-minimal
 plugins:
   - jekyll-remote-theme
 markdown: kramdown
+sass:
+  style: compressed
 include:
   - css/style.css
 
