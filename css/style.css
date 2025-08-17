@@ -1,21 +1,3 @@
-/* tweak the sidebar contact block a bit */
-.sidebar-contact {
-  margin-top: 8px;
-  line-height: 1.4;
-}
-
-/* your custom title styles for the main column */
-.custom-title {
-  font-size: 32px;   /* big like H1 */
-  font-style: bold;
-  margin: 0 0 6px 0;
-}
-
-.custom-subtitle {
-  font-size: 20px;
-  font-style: italic;
-  margin: 0 0 16px 0;
-}
 
 /* optional: remove the underline the theme adds to headings */
 h1, h2, h3 { border-bottom: none; }
