@@ -4,7 +4,7 @@ show_downloads: false
 theme: jekyll-theme-minimal 
 
 description: >
-  📧 zhao@mpidr.mpg.de 
-  🔗 [LinkedIn](www.linkedin.com/in/xinyi-zhao-38b3b61b7)  
-  📝 [Google Scholar](https://scholar.google.com/citations?user=U2JNVEwAAAAJ&hl=en)
-  🆔 [ORCID](https://orcid.org/0000-0002-2552-7795)
+  📧 <a href="mailto:zhao@mpidr.mpg.de">zhao@mpidr.mpg.de</a><br>
+  🔗 <a href="https://www.linkedin.com/in/xinyi-zhao-38b3b61b7">LinkedIn</a><br>
+  📝 <a href="https://scholar.google.com/citations?user=U2JNVEwAAAAJ&hl=en">Google Scholar</a><br>
+  🆔 <a href="https://orcid.org/0000-0002-2552-7795">ORCID</a>
