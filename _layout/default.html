@@ -1,1 +1,32 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>{{ site.title | escape }}</h1>
+        {% if site.logo %}
+          <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" />
+        {% endif %}
+        <!-- render description as HTML/Markdown -->
+        <p>{{ site.description | markdownify }}</p>
 
+        {% if site.show_downloads %}
+          <p class="view"><a href="{{ site.github.zip_url }}">Download .zip</a></p>
+        {% endif %}
+      </header>
+
+      <section>
+        {{ content }}
+      </section>
+
+      <footer>
+        {% include footer.html %}
+      </footer>
+    </div>
+  </body>
+</html>
