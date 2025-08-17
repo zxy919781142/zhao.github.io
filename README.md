@@ -1,12 +1,12 @@
-
 # **Postdoctoral Researcher**
 ## Adaptive Rationality Center, Max Planck Institute for Human Development
+
 ---
 
 ## 🎓 Education
 - **DPhil, Sociology** — *University of Oxford*  
   *Oct 2021 – Aug 2024*
-- **M.S., Geographic Information Science (GIS)** — Nanjing Universitys*  
+- **M.S., Geographic Information Science (GIS)** — *Nanjing Universitys*  
   *Sep 2016 – Jun 2019*
 - **B.S., Geographic Information Science (GIS)** — *China University of Geosciences*  
   *Sep 2012 – Jun 2016*
