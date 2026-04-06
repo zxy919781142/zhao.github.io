@@ -1,106 +1,157 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Xinyi Zhao</title>
 <style>
-  :root{--accent:#2d6a9f;--light:#f5f7fa;--text:#222;--muted:#666;--border:#dde3ea;}
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'Georgia',serif;color:var(--text);background:#fff;line-height:1.7;}
-  a{color:var(--accent);text-decoration:none;}
-  a:hover{text-decoration:underline;}
+:root{
+  --accent:#2d6a9f;--accent2:#1a4f7a;
+  --bg:#fff;--bg2:#f5f7fa;--text:#222;--muted:#666;--border:#dde3ea;
+  --card:#fff;--nav-bg:#fff;
+}
+[data-theme="dark"]{
+  --bg:#0f1117;--bg2:#1a1d27;--text:#e8eaf0;--muted:#9aa0b0;--border:#2a2f3e;
+  --card:#1a1d27;--nav-bg:#0f1117;--accent:#5ba3d9;--accent2:#7bb8e8;
+}
+*{box-sizing:border-box;margin:0;padding:0;transition:background .25s,color .2s,border-color .2s;}
+html{scroll-behavior:smooth;}
+body{font-family:'Georgia',serif;color:var(--text);background:var(--bg);line-height:1.7;}
+a{color:var(--accent);text-decoration:none;}a:hover{text-decoration:underline;}
 
-  /* NAV */
-  nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--border);z-index:99;padding:0 2rem;}
-  nav ul{display:flex;gap:1.8rem;list-style:none;max-width:900px;margin:0 auto;height:52px;align-items:center;}
-  nav a{font-family:'Helvetica Neue',sans-serif;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
-  nav a:hover{color:var(--accent);text-decoration:none;}
+/* NAV */
+nav{position:sticky;top:0;background:var(--nav-bg);border-bottom:1px solid var(--border);z-index:99;padding:0 2rem;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:960px;margin:0 auto;height:52px;}
+nav ul{display:flex;gap:1.5rem;list-style:none;align-items:center;flex-wrap:wrap;}
+nav a{font-family:'Helvetica Neue',sans-serif;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+nav a:hover{color:var(--accent);text-decoration:none;}
+#theme-btn{background:none;border:1px solid var(--border);border-radius:20px;padding:.25rem .75rem;cursor:pointer;font-size:.8rem;color:var(--muted);font-family:sans-serif;}
+#theme-btn:hover{border-color:var(--accent);color:var(--accent);}
 
-  /* LAYOUT */
-  .container{max-width:900px;margin:0 auto;padding:0 2rem;}
+/* LAYOUT */
+.container{max-width:960px;margin:0 auto;padding:0 2rem;}
 
-  /* HERO */
-  #home{padding:4rem 2rem 3rem;max-width:900px;margin:0 auto;display:flex;gap:3rem;align-items:flex-start;}
-  .avatar{width:140px;height:140px;border-radius:50%;background:var(--accent);flex-shrink:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:3rem;font-family:sans-serif;}
-  .hero-text h1{font-size:2rem;font-weight:normal;margin-bottom:.3rem;}
-  .hero-text .role{color:var(--accent);font-size:1rem;margin-bottom:.8rem;font-family:sans-serif;}
-  .hero-text p{color:var(--muted);font-size:.95rem;max-width:560px;}
-  .contact-line{margin-top:.9rem;font-size:.85rem;font-family:sans-serif;color:var(--muted);display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;}
-  .contact-line a{color:var(--muted);}
-  .contact-line a:hover{color:var(--accent);}
+/* HERO */
+#home{padding:4rem 2rem 3rem;max-width:960px;margin:0 auto;display:flex;gap:3rem;align-items:flex-start;}
+.avatar-wrap{flex-shrink:0;}
+.avatar{width:145px;height:145px;border-radius:50%;overflow:hidden;border:3px solid var(--border);background:var(--bg2);display:flex;align-items:center;justify-content:center;}
+.avatar img{width:100%;height:100%;object-fit:cover;}
+.avatar-placeholder{font-size:3.2rem;color:var(--accent);font-family:sans-serif;}
+.upload-hint{margin-top:.5rem;font-size:.72rem;color:var(--muted);text-align:center;font-family:sans-serif;}
+.hero-text h1{font-size:2rem;font-weight:normal;margin-bottom:.25rem;}
+.hero-text .role{color:var(--accent);font-size:.97rem;margin-bottom:.75rem;font-family:sans-serif;}
+.hero-text .bio{color:var(--muted);font-size:.93rem;max-width:560px;}
+.social-row{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem;}
+.social-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.3rem .85rem;border:1px solid var(--border);border-radius:20px;font-size:.8rem;font-family:sans-serif;color:var(--muted);background:var(--bg2);}
+.social-btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none;}
+.cv-btn{background:var(--accent);color:#fff!important;border-color:var(--accent);}
+.cv-btn:hover{background:var(--accent2);border-color:var(--accent2);}
+.contact-line{margin-top:.75rem;font-size:.83rem;font-family:sans-serif;color:var(--muted);display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;}
+.contact-line a{color:var(--muted);}
+.contact-line a:hover{color:var(--accent);}
 
-  /* SECTIONS */
-  section{padding:3rem 0;border-top:1px solid var(--border);}
-  h2{font-size:1.1rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:1.5rem;font-family:'Helvetica Neue',sans-serif;font-weight:600;}
+/* SECTIONS */
+section{padding:3rem 0;border-top:1px solid var(--border);}
+h2{font-size:1rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:1.5rem;font-family:'Helvetica Neue',sans-serif;font-weight:600;}
 
-  /* INTERESTS */
-  .tags{display:flex;flex-wrap:wrap;gap:.5rem;}
-  .tag{background:var(--light);border:1px solid var(--border);border-radius:20px;padding:.25rem .85rem;font-size:.83rem;font-family:sans-serif;color:var(--muted);}
+/* INTERESTS */
+.tags{display:flex;flex-wrap:wrap;gap:.5rem;}
+.tag{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:.25rem .85rem;font-size:.82rem;font-family:sans-serif;color:var(--muted);}
 
-  /* TIMELINE */
-  .timeline{display:flex;flex-direction:column;gap:1.4rem;}
-  .titem{display:grid;grid-template-columns:140px 1fr;gap:1rem;}
-  .tdate{font-size:.82rem;color:var(--muted);font-family:sans-serif;padding-top:.15rem;}
-  .titem h3{font-size:.97rem;margin-bottom:.1rem;}
-  .titem .inst{color:var(--muted);font-size:.88rem;font-family:sans-serif;}
-  .titem .detail{color:var(--muted);font-size:.85rem;margin-top:.25rem;}
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:1.4rem;}
+.titem{display:grid;grid-template-columns:145px 1fr;gap:1rem;}
+.tdate{font-size:.8rem;color:var(--muted);font-family:sans-serif;padding-top:.18rem;}
+.titem h3{font-size:.95rem;margin-bottom:.1rem;}
+.titem .inst{color:var(--muted);font-size:.86rem;font-family:sans-serif;}
+.titem .detail{color:var(--muted);font-size:.83rem;margin-top:.2rem;}
 
-  /* PUBLICATIONS */
-  .pub-list{display:flex;flex-direction:column;gap:1.2rem;}
-  .pub{border-left:3px solid var(--border);padding-left:1rem;}
-  .pub.highlight{border-left-color:var(--accent);}
-  .pub p{font-size:.92rem;line-height:1.65;}
-  .pub .venue{font-style:italic;}
-  .pub .badge{display:inline-block;background:#eaf2fb;color:var(--accent);font-size:.73rem;padding:.1rem .5rem;border-radius:3px;margin-top:.3rem;font-family:sans-serif;}
-  .pub-year{font-family:sans-serif;font-size:.9rem;font-weight:600;color:var(--accent);margin:1.2rem 0 .6rem;}
+/* PUBLICATIONS */
+.pub-list{display:flex;flex-direction:column;gap:1.1rem;}
+.pub{border-left:3px solid var(--border);padding-left:1rem;}
+.pub.highlight{border-left-color:var(--accent);}
+.pub p{font-size:.9rem;line-height:1.65;}
+.pub .venue{font-style:italic;}
+.badge{display:inline-block;background:#eaf2fb;color:var(--accent);font-size:.72rem;padding:.1rem .5rem;border-radius:3px;margin-top:.3rem;font-family:sans-serif;}
+[data-theme="dark"] .badge{background:#1a2f45;}
+.pub-year{font-family:sans-serif;font-size:.88rem;font-weight:600;color:var(--accent);margin:1.2rem 0 .5rem;}
+.media-links{margin-top:.4rem;font-size:.78rem;color:var(--muted);font-family:sans-serif;}
+.media-links a{margin-right:.6rem;}
 
-  /* AWARDS */
-  .award-list{display:flex;flex-direction:column;gap:.9rem;}
-  .award{display:grid;grid-template-columns:80px 1fr;gap:.8rem;font-size:.9rem;}
-  .award-year{font-family:sans-serif;color:var(--muted);font-size:.85rem;}
+/* CONFERENCES */
+.conf-year{font-family:sans-serif;font-size:.88rem;font-weight:600;color:var(--accent);margin:1.2rem 0 .4rem;}
+.conf-list{display:flex;flex-direction:column;gap:.75rem;}
+.conf-item{display:grid;grid-template-columns:70px 1fr;gap:.8rem;font-size:.87rem;}
+.conf-date{color:var(--muted);font-family:sans-serif;font-size:.8rem;padding-top:.1rem;}
+.conf-item .ctitle{font-style:italic;color:var(--muted);font-size:.82rem;}
+.conf-item .ctype{font-family:sans-serif;font-size:.75rem;color:var(--accent);margin-top:.1rem;}
 
-  /* SKILLS */
-  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
-  .skill-block h3{font-size:.88rem;font-family:sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem;}
-  .skill-block p{font-size:.9rem;}
+/* AWARDS */
+.award-list{display:flex;flex-direction:column;gap:.85rem;}
+.award{display:grid;grid-template-columns:75px 1fr;gap:.8rem;font-size:.9rem;}
+.award-year{font-family:sans-serif;color:var(--muted);font-size:.82rem;}
 
-  /* FOOTER */
-  footer{text-align:center;padding:2.5rem;font-size:.8rem;color:var(--muted);font-family:sans-serif;border-top:1px solid var(--border);}
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.skill-block h3{font-size:.82rem;font-family:sans-serif;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;}
+.skill-block p{font-size:.88rem;}
 
-  @media(max-width:600px){
-    #home{flex-direction:column;gap:1.5rem;}
-    .titem{grid-template-columns:1fr;gap:.2rem;}
-    .tdate{font-size:.78rem;}
-    .skills-grid{grid-template-columns:1fr;}
-    .award{grid-template-columns:60px 1fr;}
-  }
+/* FOOTER */
+footer{text-align:center;padding:2.5rem;font-size:.78rem;color:var(--muted);font-family:sans-serif;border-top:1px solid var(--border);}
+
+@media(max-width:620px){
+  #home{flex-direction:column;gap:1.5rem;}
+  .titem,.conf-item,.award{grid-template-columns:1fr;gap:.2rem;}
+  .skills-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
 <nav>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#teaching">Teaching</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-inner">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#education">CV</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#conferences">Talks</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#teaching">Service</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="theme-btn" onclick="toggleTheme()">🌙 Dark</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <div id="home">
-  <div class="avatar">赵</div>
+  <div class="avatar-wrap">
+    <div class="avatar" id="avatar-circle">
+      <span class="avatar-placeholder">赵</span>
+    </div>
+    <div class="upload-hint">
+      <label style="cursor:pointer;color:var(--accent);">
+        ＋ Add photo
+        <input type="file" accept="image/*" style="display:none" onchange="loadPhoto(event)"/>
+      </label>
+    </div>
+  </div>
   <div class="hero-text">
     <h1>Xinyi Zhao</h1>
     <div class="role">Postdoctoral Researcher · Max Planck Institute for Human Development, Berlin</div>
-    <p>I am a computational social scientist working at the intersection of gender studies, science of science, and migration research. My work uses large-scale bibliometric, digital trace, and survey data to understand gender disparities in academic careers in an era of globalization and digitalization.</p>
+    <p class="bio">I am a computational social scientist working at the intersection of gender studies, science of science, and migration research. My work uses large-scale bibliometric, digital trace, and survey data to understand gender disparities in academic careers in an era of globalization and digitalization.</p>
+    <div class="social-row">
+      <a class="social-btn cv-btn" href="#" id="cv-download" download="CV_Xinyi_Zhao.pdf">⬇ Download CV</a>
+      <a class="social-btn" href="https://orcid.org/0000-0002-2552-7795" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm-1.83 17.5H8.3V9.3h1.87zm-.935-9.3a1.08 1.08 0 110-2.16 1.08 1.08 0 010 2.16zM17 17.5h-1.87v-4.1c0-.98-.35-1.65-1.22-1.65-.67 0-1.07.45-1.24.88-.06.16-.08.38-.08.6v4.27h-1.87V9.3h1.87v.8c.25-.38.7-.93 1.7-.93 1.24 0 2.71.81 2.71 2.86z"/></svg>
+        ORCID
+      </a>
+      <a class="social-btn" href="https://scholar.google.com/scholar?q=Xinyi+Zhao+demography" target="_blank">🎓 Google Scholar</a>
+      <a class="social-btn" href="mailto:zhao@demogr.mpg.de">✉ Email</a>
+    </div>
     <div class="contact-line">
-      <a href="mailto:zhao@demogr.mpg.de">✉ zhao@demogr.mpg.de</a>
-      <span>📍 Adaptive Rationality Center, Berlin, Germany</span>
+      <span>📍 Adaptive Rationality Center, Lentzeallee 94, 14195 Berlin</span>
       <span>📞 (+49) 151 6715 0711</span>
     </div>
   </div>
@@ -156,7 +207,7 @@
         <div class="tdate">2012 – 2016</div>
         <div>
           <h3>BSc in Geographical Information System</h3>
-          <div class="inst">China University of Geosciences, Wuhan · GPA: 3.64/5, Rank: 3/96</div>
+          <div class="inst">China University of Geosciences, Wuhan · GPA: 3.64/5 · Rank: 3/96</div>
         </div>
       </div>
     </div>
@@ -165,26 +216,15 @@
     <div class="timeline">
       <div class="titem">
         <div class="tdate">2024 – present</div>
-        <div>
-          <h3>Postdoctoral Researcher</h3>
-          <div class="inst">Adaptive Rationality Center, Max Planck Institute for Human Development, Berlin</div>
-        </div>
+        <div><h3>Postdoctoral Researcher</h3><div class="inst">Adaptive Rationality Center, Max Planck Institute for Human Development, Berlin</div></div>
       </div>
       <div class="titem">
         <div class="tdate">2023 – 2024</div>
-        <div>
-          <h3>Research Assistant</h3>
-          <div class="inst">Department of Sociology & Leverhulme Centre for Demographic Science, University of Oxford</div>
-          <div class="detail">Spatial data collection and processing</div>
-        </div>
+        <div><h3>Research Assistant</h3><div class="inst">Dept. of Sociology & Leverhulme Centre for Demographic Science, University of Oxford</div><div class="detail">Spatial data collection and processing</div></div>
       </div>
       <div class="titem">
         <div class="tdate">2020</div>
-        <div>
-          <h3>Full-time Research Assistant</h3>
-          <div class="inst">Department of Urban Planning and Design, University of Hong Kong</div>
-          <div class="detail">Data collection and analysis, model programming, project reporting</div>
-        </div>
+        <div><h3>Full-time Research Assistant</h3><div class="inst">Dept. of Urban Planning and Design, University of Hong Kong</div></div>
       </div>
     </div>
 
@@ -206,58 +246,52 @@
 
     <div class="pub-year">Journal Articles</div>
     <div class="pub-list">
-
       <div class="pub highlight">
-        <p><strong>Zhao, X.</strong>, Derrick, G., Larivière, V., and Sugimoto, C.R. (2026). "Gender Differences in the Conflict between the Beginning of an Academic Career and Parenthood." <span class="venue">Higher Education</span> (Accepted). <a href="https://doi.org/10.31235/osf.io/ksd6q_v1">SocArXiv</a></p>
+        <p><strong>Zhao, X.</strong>, Derrick, G., Larivière, V., and Sugimoto, C.R. (2026). "Gender Differences in the Conflict between the Beginning of an Academic Career and Parenthood." <span class="venue">Higher Education</span> (Accepted). <a href="https://doi.org/10.31235/osf.io/ksd6q_v1">SocArXiv ↗</a></p>
         <span class="badge">🏆 Best Poster Award – IMPRS-PHDS Annual Academy</span>
       </div>
-
       <div class="pub">
-        <p>Breen, C.F., Fatehkia, M., Yan, J., <strong>Zhao, X.</strong>, et al. (2025). "Mapping subnational gender gaps in internet and mobile adoption using social media data." <span class="venue">PNAS</span>. <a href="https://doi.org/10.1073/pnas.2416624122">DOI</a></p>
+        <p>Breen, C.F., Fatehkia, M., Yan, J., <strong>Zhao, X.</strong>, et al. (2025). "Mapping subnational gender gaps in internet and mobile adoption using social media data." <span class="venue">PNAS</span>. <a href="https://doi.org/10.1073/pnas.2416624122">DOI ↗</a></p>
       </div>
-
       <div class="pub">
-        <p>Jacobs, E., Theile, T., Perrotta, D., <strong>Zhao, X.</strong>, et al. (2025). "Global Gender Gaps in the International Migration of Professionals on LinkedIn." <span class="venue">Population and Development Review</span>. <a href="http://doi.org/10.1111/padr.70012">DOI</a></p>
+        <p>Jacobs, E., Theile, T., Perrotta, D., <strong>Zhao, X.</strong>, et al. (2025). "Global Gender Gaps in the International Migration of Professionals on LinkedIn." <span class="venue">Population and Development Review</span>. <a href="http://doi.org/10.1111/padr.70012">DOI ↗</a></p>
       </div>
-
       <div class="pub">
-        <p>Akbaritabar, A., Dańko, M.J., <strong>Zhao, X.</strong>, and Zagheni, E. (2025). "Global subnational estimates of migration of scientists reveal large disparities in internal and international flows." <span class="venue">PNAS</span>. <a href="https://doi.org/10.1073/pnas.2424521122">DOI</a></p>
+        <p>Akbaritabar, A., Dańko, M.J., <strong>Zhao, X.</strong>, and Zagheni, E. (2025). "Global subnational estimates of migration of scientists reveal large disparities in internal and international flows." <span class="venue">PNAS</span>. <a href="https://doi.org/10.1073/pnas.2424521122">DOI ↗</a></p>
       </div>
-
       <div class="pub">
-        <p>Yin, Y., Pu, Y., <strong>Zhao, X.</strong>, Chi, G., and Ye, C. (2023). "The Spatiotemporal Elasticity of Age Structure in China's Interprovincial Migration System." <span class="venue">Sustainability</span>. <a href="https://www.mdpi.com/2071-1050/15/10/8001">DOI</a></p>
+        <p>Yin, Y., Pu, Y., <strong>Zhao, X.</strong>, Chi, G., and Ye, C. (2023). "The Spatiotemporal Elasticity of Age Structure in China's Interprovincial Migration System." <span class="venue">Sustainability</span>. <a href="https://www.mdpi.com/2071-1050/15/10/8001">DOI ↗</a></p>
       </div>
-
       <div class="pub highlight">
-        <p><strong>Zhao, X.</strong>, Akbaritabar, A., Kashyap, R., and Zagheni, E. (2023). "A gender perspective on the global migration of scholars." <span class="venue">PNAS</span>. <a href="https://doi.org/10.1073/pnas.2214664120">DOI</a></p>
+        <p><strong>Zhao, X.</strong>, Akbaritabar, A., Kashyap, R., and Zagheni, E. (2023). "A gender perspective on the global migration of scholars." <span class="venue">PNAS</span>. <a href="https://doi.org/10.1073/pnas.2214664120">DOI ↗</a></p>
         <span class="badge">🏆 Jan Hoem Award – MPIDR Best Early Career Paper</span>
-        <br><small style="color:var(--muted);font-size:.8rem;">Media: <a href="https://www.nature.com/articles/d41586-023-00917-1">Nature</a> · <a href="https://www.timeshighereducation.com/news/female-researchers-close-global-mobility-gap-men">Times Higher Education</a> · <a href="https://www.pnas.org/post/podcast/gender-gap-among-migrant-scientists">PNAS Podcast</a></small>
+        <div class="media-links">Media: <a href="https://www.nature.com/articles/d41586-023-00917-1">Nature</a> <a href="https://www.timeshighereducation.com/news/female-researchers-close-global-mobility-gap-men">Times Higher Education</a> <a href="https://www.pnas.org/post/podcast/gender-gap-among-migrant-scientists">PNAS Podcast</a></div>
       </div>
-
       <div class="pub">
-        <p><strong>Zhao, X.</strong>, Aref, S., Zagheni, E., and Stecklov, G. (2022). "Return migration of German-affiliated researchers: Analyzing departure and return by gender, cohort, and discipline." <span class="venue">Scientometrics</span>. <a href="https://doi.org/10.1007/s11192-022-04351-4">DOI</a></p>
+        <p><strong>Zhao, X.</strong>, Aref, S., Zagheni, E., and Stecklov, G. (2022). "Return migration of German-affiliated researchers: Analyzing departure and return by gender, cohort, and discipline." <span class="venue">Scientometrics</span>. <a href="https://doi.org/10.1007/s11192-022-04351-4">DOI ↗</a></p>
       </div>
-
       <div class="pub">
-        <p>Pu, Y., <strong>Zhao, X.</strong>, Chi, G., et al. (2019). "A Spatial Dynamic Panel Approach to Modelling the Space-time Dynamic of Interprovincial Migration Flows in China." <span class="venue">Demographic Research</span> 41(31). <a href="https://doi.org/10.4054/DemRes.2019.41.31">DOI</a></p>
+        <p>Pu, Y., <strong>Zhao, X.</strong>, Chi, G., et al. (2019). "A Spatial Dynamic Panel Approach to Modelling the Space-time Dynamic of Interprovincial Migration Flows in China." <span class="venue">Demographic Research</span> 41(31). <a href="https://doi.org/10.4054/DemRes.2019.41.31">DOI ↗</a></p>
       </div>
-
       <div class="pub">
-        <p>Pu, Y., <strong>Zhao, X.</strong>, Chi, G., et al. (2019). "Design and Implementation of a Parallel Geographically Weighted k-Nearest Neighbor Classifier." <span class="venue">Computers and Geosciences</span> 127. <a href="https://doi.org/10.1016/j.cageo.2019.02.009">DOI</a></p>
+        <p>Pu, Y., <strong>Zhao, X.</strong>, Chi, G., et al. (2019). "Design and Implementation of a Parallel Geographically Weighted k-Nearest Neighbor Classifier." <span class="venue">Computers and Geosciences</span> 127. <a href="https://doi.org/10.1016/j.cageo.2019.02.009">DOI ↗</a></p>
       </div>
     </div>
 
     <div class="pub-year">Working Papers</div>
     <div class="pub-list">
       <div class="pub highlight">
-        <p><strong>Zhao, X.</strong>, Akbaritabar, A., Kashyap, R., and Zagheni, E. "Gender differences in online visibility of early career researchers." (<em>Resubmit – Nature Communications</em>)</p>
-        <span class="badge">🏆 3rd place & Audience Favorite – Oxford Sociology Poster Competition</span>
+        <p><strong>Zhao, X.</strong>, Akbaritabar, A., Kashyap, R., and Zagheni, E. "Gender differences in online visibility of early career researchers." <em>Resubmit – Nature Communications</em></p>
+        <span class="badge">🏆 3rd Place & Audience Favorite – Oxford Sociology Poster Competition</span>
       </div>
       <div class="pub">
-        <p><strong>Zhao, X.</strong>, Hertwig, R., and Wulff, D. "Sustainable Development Goals in Psychology: A Century of Progress in Publications." (<em>R&R – American Psychologist</em>). <a href="https://doi.org/10.48550/arXiv.2512.08628">ArXiv</a></p>
+        <p><strong>Zhao, X.</strong>, Hertwig, R., and Wulff, D. "Sustainable Development Goals in Psychology: A Century of Progress in Publications." <em>R&R – American Psychologist</em>. <a href="https://doi.org/10.48550/arXiv.2512.08628">ArXiv ↗</a></p>
       </div>
       <div class="pub">
-        <p><strong>Zhao, X.</strong>, Thoma, A.I., Hertwig, R., and Wulff, D.U. "Mapping the gender attrition gap in academic psychology." (<em>Under review – American Psychologist</em>). <a href="https://doi.org/10.48550/arXiv.2510.13273">ArXiv</a></p>
+        <p><strong>Zhao, X.</strong>, Thoma, A.I., Hertwig, R., and Wulff, D.U. "Mapping the gender attrition gap in academic psychology." <em>Under review – American Psychologist</em>. <a href="https://doi.org/10.48550/arXiv.2510.13273">ArXiv ↗</a></p>
+      </div>
+      <div class="pub">
+        <p>Lin, Y., Gu, H., <strong>Zhao, X.</strong>, et al. "Sino-US Trade War has hindered bilateral scientific mobility." <em>In progress</em></p>
       </div>
     </div>
 
@@ -266,6 +300,47 @@
       <div class="pub">
         <p>Kashyap, R., … <strong>Zhao, X.</strong> et al. (2023). "Digital and computational demography." In <span class="venue">Research Handbook on Digital Sociology</span>, pp. 48–86. Edward Elgar Publishing.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFERENCES -->
+<section id="conferences">
+  <div class="container">
+    <h2>Selected Talks & Conference Presentations</h2>
+
+    <div class="conf-year">2025</div>
+    <div class="conf-list">
+      <div class="conf-item"><div class="conf-date">Sep</div><div><div>Workshop: Women and Work in the 21st Century · Berlin, Germany</div><div class="ctitle">Digital Inequality in Academia</div><div class="ctype">Oral</div></div></div>
+      <div class="conf-item"><div class="conf-date">Jul</div><div><div>IC2S2 2025 · Norrköping, Sweden</div><div class="ctitle">Mapping the Leaky Pipeline in Psychology; SDGs in Psychology</div><div class="ctype">Poster</div></div></div>
+      <div class="conf-item"><div class="conf-date">Jun</div><div><div>ICSSI · Copenhagen, Denmark</div><div class="ctitle">Mapping the Leaky Pipeline in Psychology</div><div class="ctype">Poster</div></div></div>
+      <div class="conf-item"><div class="conf-date">Feb</div><div><div>Bridging Approaches in the Sciences Studying Science · Munich, Germany</div><div class="ctitle">Mapping the leaky pipeline: Gender disparities in academic progression in psychology</div><div class="ctype">Oral</div></div></div>
+    </div>
+
+    <div class="conf-year">2024</div>
+    <div class="conf-list">
+      <div class="conf-item"><div class="conf-date">Dec</div><div><div>Digital Inequalities Symposium for Early-Career Researchers · Paris, France</div><div class="ctitle">Gender differences in the online visibility of early-career researchers</div><div class="ctype">Oral</div></div></div>
+      <div class="conf-item"><div class="conf-date">Jun</div><div><div>European Population Conference 2024 · Edinburgh, UK</div><div class="ctitle">Gender in the Conflict between the Beginning of an Academic Career and Parenthood</div><div class="ctype">Flash Talk</div></div></div>
+      <div class="conf-item"><div class="conf-date">Apr</div><div><div>Population Association of America (PAA) 2024 · Columbus, Ohio</div><div class="ctitle">Gender differences in the online visibility of early-career researchers; Gender differences in trajectories of childbearing and doctoral degree pursuit</div><div class="ctype">Flash Talk</div></div></div>
+    </div>
+
+    <div class="conf-year">2023</div>
+    <div class="conf-list">
+      <div class="conf-item"><div class="conf-date">Jul</div><div><div>IC2S2 2023 · Copenhagen, Denmark</div><div class="ctitle">Gender differences in the online visibility of early-career researchers</div><div class="ctype">Poster</div></div></div>
+      <div class="conf-item"><div class="conf-date">Jul</div><div><div>20th IMISCOE Annual Conference · Warsaw, Poland</div><div class="ctitle">Gendered patterns of global scholarly migration</div><div class="ctype">Oral</div></div></div>
+      <div class="conf-item"><div class="conf-date">Apr</div><div><div>Population Association of America (PAA) 2023 · New Orleans, USA</div><div class="ctitle">Gendered patterns of global scholarly migration</div><div class="ctype">Oral & Poster</div></div></div>
+    </div>
+
+    <div class="conf-year">2022</div>
+    <div class="conf-list">
+      <div class="conf-item"><div class="conf-date">Jun</div><div><div>European Population Conference 2022 · Groningen, Netherlands</div><div class="ctitle">Return migration in academia: German-affiliated researchers by gender, cohort and discipline</div><div class="ctype">Oral</div></div></div>
+      <div class="conf-item"><div class="conf-date">Apr</div><div><div>Population Association of America (PAA) 2022 · Atlanta, USA</div><div class="ctitle">Gender Inequality in International Scholarly Migration</div><div class="ctype">Oral</div></div></div>
+    </div>
+
+    <div class="conf-year">2021</div>
+    <div class="conf-list">
+      <div class="conf-item"><div class="conf-date">Jul</div><div><div>IC2S2 2021 · Zurich, Switzerland (online)</div><div class="ctitle">The interplay between migration, gender, career stages, and citations</div><div class="ctype">Oral</div></div></div>
+      <div class="conf-item"><div class="conf-date">Jul</div><div><div>ISSI 2021 · Leuven, Belgium (online)</div><div class="ctitle">International migration in academia and citation performance</div><div class="ctype">Oral</div></div></div>
     </div>
   </div>
 </section>
@@ -293,48 +368,27 @@
   <div class="container">
     <h2>Teaching & Service</h2>
     <div class="timeline">
-      <div class="titem">
-        <div class="tdate">2024</div>
-        <div><h3>Guest Lecture: "Migration of Scientists"</h3><div class="inst">Course: Migration & Society · University of Rostock & MPIDR</div></div>
-      </div>
-      <div class="titem">
-        <div class="tdate">2022</div>
-        <div><h3>Workshop Co-organizer: "Using Bibliometric Data in Demographic Research"</h3><div class="inst">European Population Conference 2022</div></div>
-      </div>
-      <div class="titem">
-        <div class="tdate">2019</div>
-        <div><h3>Workshop: "Spatial Data Analysis"</h3><div class="inst">10th Forum on Spatially Integrated Humanities and Social Science</div></div>
-      </div>
+      <div class="titem"><div class="tdate">2024</div><div><h3>Guest Lecture: "Migration of Scientists"</h3><div class="inst">Migration & Society · University of Rostock & MPIDR</div></div></div>
+      <div class="titem"><div class="tdate">2022</div><div><h3>Workshop Co-organizer: "Using Bibliometric Data in Demographic Research"</h3><div class="inst">European Population Conference 2022</div></div></div>
+      <div class="titem"><div class="tdate">2019</div><div><h3>Workshop: "Spatial Data Analysis"</h3><div class="inst">10th Forum on Spatially Integrated Humanities and Social Science</div></div></div>
     </div>
 
     <h2 style="margin-top:2rem;">Peer Review</h2>
-    <p style="font-size:.9rem;color:var(--muted);">
+    <p style="font-size:.88rem;color:var(--muted);">
       <em>Population and Development Review</em> (2025) · <em>Quantitative Science Studies</em> (2024, 2025) · <em>Comparative Migration Studies</em> (2024) · <em>F1000Research</em> (2024) · <em>Information Processing and Management</em> (2023) · <em>Higher Education Policy</em> (2022)
     </p>
-  </div>
-</section>
 
-<!-- SKILLS -->
-<section>
-  <div class="container">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-block">
-        <h3>Programming</h3>
-        <p>Python · R · C++ · C# · JavaScript · Matlab</p>
-      </div>
-      <div class="skill-block">
-        <h3>Software</h3>
-        <p>ArcGIS · MapGIS · Erdas · GeoDa · SPSS · Flex</p>
-      </div>
-      <div class="skill-block">
-        <h3>Languages</h3>
-        <p>English (proficient) · Chinese (native)</p>
-      </div>
-      <div class="skill-block">
-        <h3>Certificates</h3>
-        <p>Information System Project Manager (Senior) · Software Developer · MapGIS Development Engineer</p>
-      </div>
+    <h2 style="margin-top:2rem;">Academic Memberships</h2>
+    <p style="font-size:.88rem;color:var(--muted);">
+      Nature Humanities & Social Sciences Editorial Community · Leverhulme Centre for Demographic Science Affiliate · MPIDR Affiliated Researcher · IMISCOE PhD Academy · IUSSP · Population Association of America · Migration Oxford
+    </p>
+
+    <h2 style="margin-top:2rem;">Skills</h2>
+    <div class="skills-grid" style="margin-top:.5rem;">
+      <div class="skill-block"><h3>Programming</h3><p>Python · R · C++ · C# · JavaScript · Matlab</p></div>
+      <div class="skill-block"><h3>Software</h3><p>ArcGIS · MapGIS · Erdas · GeoDa · SPSS · Flex</p></div>
+      <div class="skill-block"><h3>Languages</h3><p>English (proficient) · Chinese (native)</p></div>
+      <div class="skill-block"><h3>Certificates</h3><p>Information System Project Manager (Senior) · Software Developer · MapGIS Development Engineer</p></div>
     </div>
   </div>
 </section>
@@ -343,19 +397,48 @@
 <section id="contact">
   <div class="container">
     <h2>Contact</h2>
-    <p style="font-size:.93rem;">
+    <p style="font-size:.92rem;line-height:2;">
       <strong>Xinyi Zhao</strong><br>
       Adaptive Rationality Center<br>
       Max Planck Institute for Human Development<br>
-      Lentzeallee 94, 14195 Berlin, Germany<br><br>
-      ✉ <a href="mailto:zhao@demogr.mpg.de">zhao@demogr.mpg.de</a> / <a href="mailto:zhao@mpib-berlin.mpg.de">zhao@mpib-berlin.mpg.de</a>
+      Lentzeallee 94, 14195 Berlin, Germany<br>
+      ✉ <a href="mailto:zhao@demogr.mpg.de">zhao@demogr.mpg.de</a> · <a href="mailto:zhao@mpib-berlin.mpg.de">zhao@mpib-berlin.mpg.de</a><br>
+      🔗 <a href="https://orcid.org/0000-0002-2552-7795" target="_blank">ORCID: 0000-0002-2552-7795</a>
     </p>
   </div>
 </section>
 
 <footer>
-  © 2026 Xinyi Zhao · Built with GitHub Pages
+  © 2026 Xinyi Zhao · Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
 </footer>
 
+<script>
+function toggleTheme(){
+  const html=document.documentElement;
+  const dark=html.getAttribute('data-theme')==='dark';
+  html.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('theme-btn').textContent=dark?'🌙 Dark':'☀️ Light';
+}
+function loadPhoto(e){
+  const f=e.target.files[0];
+  if(!f)return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const c=document.getElementById('avatar-circle');
+    c.innerHTML=`<img src="${ev.target.result}" alt="Xinyi Zhao"/>`;
+  };
+  r.readAsDataURL(f);
+}
+// Smooth active nav highlight
+const secs=[...document.querySelectorAll('section,[id]')];
+const links=[...document.querySelectorAll('nav a')];
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(s.offsetTop-80<=scrollY)cur=s.id;});
+  links.forEach(l=>{
+    l.style.color=l.getAttribute('href')==='#'+cur?'var(--accent)':'';
+  });
+});
+</script>
 </body>
 </html>
