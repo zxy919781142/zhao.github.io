@@ -82,9 +82,41 @@ h2{font-size:1rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accen
 .badge{display:inline-block;background:#eaf2fb;color:var(--accent);font-size:.72rem;padding:.1rem .5rem;border-radius:3px;margin-top:.3rem;font-family:sans-serif;}
 [data-theme="dark"] .badge{background:#1a2f45;}
 .pub-year{font-family:sans-serif;font-size:.88rem;font-weight:600;color:var(--accent);margin:1.2rem 0 .5rem;}
-.media-links{margin-top:.4rem;font-size:.78rem;color:var(--muted);font-family:sans-serif;}
-.media-links a{margin-right:.6rem;}
+.media-links {
+  margin-top: .6rem;
+  font-size: .82rem;
+  font-family: sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+}
 
+.media-links span {
+  color: var(--muted);
+  margin-right: .3rem;
+}
+
+.media-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  padding: .2rem .6rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  font-size: .8rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.media-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(45,106,159,0.08);
+}
+
+  
 /* CONFERENCES */
 .conf-year{font-family:sans-serif;font-size:.88rem;font-weight:600;color:var(--accent);margin:1.2rem 0 .4rem;}
 .conf-list{display:flex;flex-direction:column;gap:.75rem;}
@@ -267,7 +299,12 @@ footer{text-align:center;padding:2.5rem;font-size:.78rem;color:var(--muted);font
       <div class="pub highlight">
         <p><strong>Zhao, X.</strong>, Akbaritabar, A., Kashyap, R., and Zagheni, E. (2023). "A gender perspective on the global migration of scholars." <span class="venue">PNAS</span>. <a href="https://doi.org/10.1073/pnas.2214664120">DOI ↗</a></p>
         <span class="badge">🏆 Jan Hoem Award – MPIDR Best Early Career Paper</span>
-        <div class="media-links">Media: <a href="https://www.nature.com/articles/d41586-023-00917-1">Nature</a> <a href="https://www.timeshighereducation.com/news/female-researchers-close-global-mobility-gap-men">Times Higher Education</a> <a href="https://www.pnas.org/post/podcast/gender-gap-among-migrant-scientists">PNAS Podcast</a></div>
+        <div class="media-links">
+          <span>Selected Media:</span>
+          <a class="media-btn" href="https://www.nature.com/articles/d41586-023-00917-1" target="_blank">📰 Nature</a>
+          <a class="media-btn" href="https://www.timeshighereducation.com/news/female-researchers-close-global-mobility-gap-men" target="_blank">📰 Times Higher Education</a>
+          <a class="media-btn" href="https://www.pnas.org/post/podcast/gender-gap-among-migrant-scientists" target="_blank">🎧 PNAS Podcast</a>
+        </div>
       </div>
       <div class="pub">
         <p><strong>Zhao, X.</strong>, Aref, S., Zagheni, E., and Stecklov, G. (2022). "Return migration of German-affiliated researchers: Analyzing departure and return by gender, cohort, and discipline." <span class="venue">Scientometrics</span>. <a href="https://doi.org/10.1007/s11192-022-04351-4">DOI ↗</a></p>
